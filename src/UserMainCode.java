@@ -3,12 +3,13 @@ public class UserMainCode {
     public int longestSegment(int input1, String input2) {
         // Finding the first occurrence of 'I'
         int firstI = input2.indexOf('I');
+        String temp=input2;
+        temp=temp.substring(0,firstI+1);
+        input2=input2.substring(firstI+1);
 
+        temp=temp.replace('I','F');
 
-
-        // Replace only the first occurrence of oldChar
-        input2= input2.substring(0, firstI) + 'F' + input2.substring(firstI + 1);
-
+        input2=temp+input2;
 
         // If there are no 'I's, return 0 as all are formally dressed
         if (firstI == -1) {
@@ -18,8 +19,10 @@ public class UserMainCode {
         // Finding the last occurrence of 'I'
         int lastI = input2.indexOf('I');
 
+        temp=input2.substring(lastI);
+
         // Calculate the length of the segment to remove
-        return lastI - firstI + 1;
+        return temp.length();
     }
 
     public static void main(String[] args) {
